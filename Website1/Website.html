@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Website Layout</title>
+  <style>
+    :root {
+      --primary-color: yellowgreen;
+      --secondary-color: #D7E8D4;
+      --background-color: #f9f9f9;
+      --text-color: #333;
+      --card-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--primary-color);
+      padding: 1.5em;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
+    nav {
+        background: var(--secondary-color);
+        padding: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      nav a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      
+      nav a:hover {
+        background: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+      }
+      
+    #main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px;
+    }
+
+    #main > article {
+      flex: 1;
+      background: #f4f4f4;
+      padding: 1.5em;
+      border-radius: 8px;
+    }
+
+    #main > aside {
+      flex: 0 0 250px;
+      background: beige;
+      padding: 1.5em;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      margin: 20px;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      margin-bottom: 20px;
+    }
+
+    .gallery-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+    .gallery img {
+      border: 3px solid #000;
+      box-shadow: var(--card-shadow);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .cards {
+      margin: 20px;
+      text-align: center;
+    }
+
+    .cards h2 {
+      margin-bottom: 20px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 0 0 250px;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: var(--card-shadow);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card .text {
+      padding: 15px;
+    }
+
+    .card .text > button {
+      background: gray;
+      border: 0;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card .text > button:hover {
+      background: var(--primary-color);
+    }
+
+    .media {
+        display: flex;
+        align-items: flex-start;
+        background: #F6F3EB;
+        padding: 1.5em;
+        border-radius: 8px;
+        max-width: 900px;
+        margin: 20px auto;
+      }
+      
+      .media-object {
+        width: auto;
+        height: 100%;
+        max-height: 250px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-right: 1.5em;
+      }
+      
+      .media-body {
+        flex: 1;
+      }
+    
+    footer {
+      background: var(--primary-color);
+      padding: 1.5em;
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        flex-direction: column;
+      }
+
+      #main > aside {
+        flex: 1;
+      }
+
+      .gallery img {
+        max-width: 45%;
+      }
+
+      .card {
+        flex: 0 0 100%;
+      }
+
+      .media {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .media-object {
+        margin-right: 0;
+        margin-bottom: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Animal Website</h1>
+  </header>
+
+  <nav>
+    <a href="#main">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#cards">Cards</a>
+    <a href="#media">Media</a>
+  </nav>
+
+  <div id="main">
+    <article>
+        <h2>The Wonders of the Animal Kingdom</h2>
+        <p>Animals are an integral part of our ecosystem, playing crucial roles in maintaining balance in nature. From the mighty elephants of the savannah to the tiny ants working in colonies, every creature has a purpose and a fascinating way of life.</p>
+        <p>The diversity in the animal kingdom is truly astounding. There are over 8.7 million known species on Earth, each uniquely adapted to its environment. Some animals, like the Arctic fox, change their fur color to blend with the seasons, while others, like the chameleon, can change colors to communicate or camouflage.</p>
+        <p>Many animals display incredible intelligence and emotions. Elephants grieve for their lost loved ones, dolphins recognize themselves in mirrors, and crows can use tools to solve complex problems. The more we study them, the more we realize how remarkable they truly are.</p>
+        <p>Conservation efforts are more important than ever. Due to habitat destruction, pollution, and climate change, many species face extinction. By protecting forests, reducing plastic waste, and supporting conservation programs, we can help ensure that future generations continue to witness the beauty of wildlife.</p>
+        </article>
+      
+    <aside>
+      <h2>Did You Know?</h2>
+      <ul>
+        <li>Octopuses have three hearts and blue blood.</li>
+        <li>Hummingbirds can flap their wings up to 80 times per second.</li>
+        <li>Sea otters hold hands while sleeping to stay together.</li>
+        <li>Cows have best friends and get stressed when separated.</li>
+      </ul>
+    </aside>
+  </div>
+  
+  <section id="gallery" class="gallery">
+    <h2>Beautiful Butterflies</h2>
+    <div class="gallery-images">
+      <img src="img1.jpeg" alt="Butterfly 1">
+      <img src="img2.jpeg" alt="Butterfly 2">
+      <img src="img3.jpeg" alt="Butterfly 3">
+      <img src="img4.jpeg" alt="Butterfly 4">
+      <img src="img5.jpeg" alt="Butterfly 5">
+      <img src="img6.jpeg" alt="Butterfly 6">
+    </div>
+  </section>
+
+<section id="cards" class="cards">
+    <h2>Discover the Wonders of Nature</h2>
+    <div class="cards-container">
+      <article class="card">
+        <img src="pet.jpeg" alt="Pet">
+        <div class="text">
+          <h3>The Unbreakable Bond</h3>
+          <p>Pets bring unconditional love and companionship into our lives, teaching us the true meaning of loyalty and care.</p>
+          <button>Meet Your Companion</button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="cow.jpeg" alt="Cow">
+        <div class="text">
+          <h3>The Gentle Guardians</h3>
+          <p>Cows symbolize patience and nourishment, playing an essential role in agriculture and sustainable living for centuries.</p>
+          <button>Explore More</button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="bird.jpeg" alt="Bird">
+        <div class="text">
+          <h3>Wings of Freedom</h3>
+          <p>Birds remind us to rise above challenges, embrace adventure, and find beauty in every journey we take.</p>
+          <button>Soar with Us</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+  <section id="media" class="media">
+    <img class="media-object" src="animal.jpeg" alt="Wildlife Scene">
+    <div class="media-body">
+      <h3 class="media-heading">The Beauty of Wildlife Conservation</h3>
+      <p>Wildlife conservation is essential to protect endangered species and preserve biodiversity. Organizations around the world are working tirelessly to save animals from habitat loss, poaching, and climate change.</p>
+      <p>By supporting ethical wildlife tourism, adopting eco-friendly habits, and spreading awareness, we can help create a future where animals thrive in their natural habitats.</p>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
